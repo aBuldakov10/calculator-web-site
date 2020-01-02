@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap&subset=cyrillic,latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<div>	
+		<fieldset>
+			<legend>Выбрать тип сайта</legend>
+			<select name="" id="select_site">
+				<option value="0">---- Выберите сайт ----</option>
+				<option value="25">Визитка 25 $</option>
+				<option value="50">Лендинг 50 $</option>
+				<option value="100">Корпоративный 100 $</option>
+				<option value="200">Интернет-магазин 200 $</option>
+			</select>
+		</fieldset>
+
+		<!-- общий -->
+		<fieldset id="general">
+			<legend>Выбрать общие параметры</legend>
+			<label><input type="checkbox" value="300"> Уникальный дизайн (300 $)</label>
+			<label><input type="checkbox" value="50"> Разработка логотипа (50 $)</label>
+			<div id="fill_cont">
+				<label><input id="content_checkbox" type="checkbox" onclick="fillPages()"> Наполнение страниц</label>
+				<input id="page_amount" type="text" maxlength="2" disabled="disabled" oninput="getPages()">стр.
+				<div id="forPagesSum"></div>
+			</div>
+			<label><input type="checkbox" value="500"> Адаптивность (под все устройства) (500 $)</label>
+			<div id="choose_CMS">
+				<span>Нужна ли CMS? </span>
+				<select name="" id="select_cms">
+					<option value="0">Не использовать</option>
+					<option value="150">Wordpress (150 $)</option>
+					<option value="130">Joomla (130 $)</option>
+					<option value="100">Opencart (100 $)</option>
+				</select>
+			</div>
+			<div id="choose_executor">
+				<span>Выбрать исполнителя:</span>
+				<div id="who_is_executor">
+					<label><input type="radio" name="executor" value="200" onclick="chooseDev()" checked="checked"> Нанять нормальных разработчиков (200 $)</label>
+					<label><input id="indus" type="radio" value="2" name="executor" onclick="chooseIndus()"> Нанять индусов (2 $)</label>	
+					<label id="remake_label"><input id="remake" value="150" type="checkbox"> Переделать все после индусов, чтоб нормально работало? (150 $)</label>
+				</div>
+			</div>
+			<label><input type="checkbox" value="50"> Заказать SSL сертификат (50 $)</label>
+			<label><input type="checkbox" value="40"> Размещение на хостинге и получение домена (40 $)</label>
+			<div id="set_days">
+				<span>Количество дней на исполнение</span>
+				<input id="choose_days" type="range" min="2" max="15" value="15" step="1">
+				<p id="days_amount">15</p>
+				<p id="sumForDaysAmount" style="margin-left: 10px;">(33 $)</p>
+			</div>
+		</fieldset>
+
+		<!-- корпоративный -->
+		<fieldset id="corporative">
+			<legend>Выбрать уникальные параметры для корпоративного сайта</legend>
+			<label><input type="checkbox" value="25"> Лента новостей (25 $)</label>
+			<label><input type="checkbox" value="30"> Лента RSS (30 $)</label>
+			<label><input type="checkbox" value="20"> Фотогалерея (20 $)</label>
+			<label><input type="checkbox" value="10"> Портфолио (10 $)</label>
+		</fieldset>
+
+		<!-- инет магаз -->
+		<fieldset id="shop">
+			<legend>Выбрать уникальные параметры для интеренет-магазина</legend>
+			<label><input type="checkbox" value="10"> Подключение Яндекс.Метрики и Google Analytics (10 $)</label>
+			<label><input type="checkbox" value="20"> Наполнение товаром (20 $)</label>
+			<div id="choose_payment">
+				<span>Добавить способ оплаты: </span>
+				<div>
+					<label><input type="checkbox" value="5"> Visa (5 $)</label>
+					<label><input type="checkbox" value="5"> Mastercard (5 $)</label>
+					<label><input type="checkbox" value="5"> Cash (5 $)</label>
+				</div>
+			</div>
+			<div id="choose_delivery">
+				<span>Добвить способ доставки: </span>
+				<div>
+					<label><input type="checkbox" value="5"> Почта (5 $)</label>
+					<label><input type="checkbox" value="6"> Курьер (6 $)</label>
+					<label><input type="checkbox" value="7"> Самовывоз (7 $)</label>
+				</div>
+			</div>
+		</fieldset>
+
+		<!-- стоимость -->
+		<fieldset>
+			<legend>Cтоимость</legend>
+			<div id="cost">
+				<span>Общая стоимость заказа: </span>
+				<p id="total">0</p> $
+			</div>
+		</fieldset>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
